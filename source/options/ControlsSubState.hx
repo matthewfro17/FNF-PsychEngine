@@ -57,8 +57,6 @@ class ControlsSubState extends MusicBeatSubstate {
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 
-		optionShit = EKData.Keybinds.optionShit();
-
 		var currentPage:String = "";
 		var generatedPage:Dynamic = [];
 		for (i in 0...optionShit.length) {
