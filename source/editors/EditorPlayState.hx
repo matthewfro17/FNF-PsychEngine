@@ -74,8 +74,6 @@ class EditorPlayState extends MusicBeatState
 		bg.scrollFactor.set();
 		bg.color = FlxColor.fromHSB(FlxG.random.int(0, 359), FlxG.random.float(0, 0.8), FlxG.random.float(0.3, 1));
 		add(bg);
-
-		keysArray = EKData.Keybinds.fill();
 		
 		strumLine = new FlxSprite(ClientPrefs.middleScroll ? PlayState.STRUM_X_MIDDLESCROLL : PlayState.STRUM_X, 50).makeGraphic(FlxG.width, 10);
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
