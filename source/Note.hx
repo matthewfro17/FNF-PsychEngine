@@ -22,9 +22,26 @@ typedef EventNote = {
 class Note extends FlxSprite
 {
 	public var LocalScrollSpeed:Float = 1;
+	
+	public static var gfxLetter:Array<String> = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
+	public static var ammo:Array<Int> = EKData.gun;
+	public static var minMania:Int = 0;
+	public static var maxMania:Int = 17; // key value is this + 1
+
+	public static var lessX:Array<Int> = EKData.lessX;
+	public static var separator:Array<Int> = EKData.noteSep;
+	public static var xtra:Array<Float> = EKData.offsetX;
+	public static var gridSizes:Array<Int> = EKData.gridSizes;
+	public static var noteSplashOffsets:Map<Int, Array<Int>> = [
+		0 => [20, 10],
+		9 => [10, 20]
+	];
+	public static var noteSplashScales:Array<Float> = EKData.splashScales;
 
 	public static var xmlMax:Int = 17; // This specifies the max of the splashes can go
 
+	public static var minManiaUI_integer:Int = minMania + 1;
+	public static var maxManiaUI_integer:Int = maxMania + 1;
 	public static var defaultMania:Int = 3;
 
 	// pixel notes
