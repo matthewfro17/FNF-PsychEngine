@@ -29,12 +29,6 @@ class Note extends FlxSprite
 
 	// pixel notes
 	public static var pixelNotesDivisionValue:Int = 18;
-	public static var pixelScales:Array<Float> = EKData.pixelScales;
-
-	public static var keysShit:Map<Int, Map<String, Dynamic>> = EKData.keysShit;
-
-	// End of extra keys stuff
-	//////////////////////////////////////////////////
 
 	public var extraData:Map<String,Dynamic> = [];
 	public var strumTime:Float = 0;
@@ -77,8 +71,6 @@ class Note extends FlxSprite
 	var notes = ['purple', 'blue', 'green', 'red'];
 
 	private var notetolookfor = 0;
-
-	public var originalType = 0;
 
 	public var originalType = 0;
 
