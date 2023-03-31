@@ -266,6 +266,7 @@ class Note extends FlxSprite
 		if (mania == 3) notes = ['purple', 'green', 'red', 'white', 'yellow', 'blue', 'dark'];
 		if (mania == 4) notes = ['purple', 'blue', 'green', 'red', 'white', 'yellow', 'violet', 'black', 'dark'];
 		if (mania == 5) notes = ['purple', 'blue', 'green', 'red', 'pink', 'turq', 'emerald', 'lightred', 'yellow', 'violet', 'black', 'dark'];
+		if ((guitarSection && inCharter && noteData < 5) || (guitarSection)) notes = ['green', 'red', 'yellow', 'blue', 'orange'];
 
 		var notePathLol:String = 'notes/NOTE_assets';
 		{
@@ -612,7 +613,7 @@ class Note extends FlxSprite
 		if(texture.length < 1) {
 			skin = PlayState.SONG.arrowSkin;
 			if(skin == null || skin.length < 1) {
-				skin = 'NOTE_assets';
+				skin = 'notes/NOTE_assets';
 			}
 		}
 
