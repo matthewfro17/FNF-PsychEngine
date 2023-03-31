@@ -23,26 +23,7 @@ class Note extends FlxSprite
 {
 	public var LocalScrollSpeed:Float = 1;
 
-	public static var gfxLetter:Array<String> = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
-												'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
-	public static var ammo:Array<Int> = EKData.gun;
-	public static var minMania:Int = 0;
-	public static var maxMania:Int = 17; // key value is this + 1
-
-	public static var lessX:Array<Int> = EKData.lessX;
-	public static var separator:Array<Int> = EKData.noteSep;
-	public static var xtra:Array<Float> = EKData.offsetX;
-	public static var gridSizes:Array<Int> = EKData.gridSizes;
-	public static var noteSplashOffsets:Map<Int, Array<Int>> = [
-		0 => [20, 10],
-		9 => [10, 20]
-	];
-	public static var noteSplashScales:Array<Float> = EKData.splashScales;
-
 	public static var xmlMax:Int = 17; // This specifies the max of the splashes can go
-
-	public static var minManiaUI_integer:Int = minMania + 1;
-	public static var maxManiaUI_integer:Int = maxMania + 1;
 
 	public static var defaultMania:Int = 3;
 
@@ -92,14 +73,20 @@ class Note extends FlxSprite
 	public static var GREEN_NOTE:Int = 2;
 	public static var BLUE_NOTE:Int = 1;
 	public static var RED_NOTE:Int = 3;
+	
+	var notes = ['purple', 'blue', 'green', 'red'];
 
 	private var notetolookfor = 0;
+
+	public var originalType = 0;
 
 	public var originalType = 0;
 
 	public var MyStrum:StrumNote;
 
 	public var noteStyle:String = 'normal';
+
+	public var guitarSection:Bool;
 
 	public var noteType(default, set):String = null;
 
@@ -154,8 +141,6 @@ class Note extends FlxSprite
 
 	public var noteOffset:Float = 0;
 
-	var notes = ['purple', 'blue', 'green', 'red'];
-
 	var ogW:Float;
 	var ogH:Float;
 
@@ -188,13 +173,6 @@ class Note extends FlxSprite
 
 	private function set_noteType(value:String):String {
 		noteSplashTexture = PlayState.SONG.splashSkin;
-		if (noteData > -1 && noteData < ClientPrefs.arrowHSV.length)
-		{
-			colorSwap.hue = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][0] / 360;
-			colorSwap.saturation = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][1] / 100;
-			colorSwap.brightness = ClientPrefs.arrowHSV[Std.int(Note.keysShit.get(mania).get('pixelAnimIndex')[noteData] % Note.ammo[mania])][2] / 100;
-		}
-
 		if(noteData > -1 && noteType != value) {
 			switch(value) {
 				case 'Hurt Note':
